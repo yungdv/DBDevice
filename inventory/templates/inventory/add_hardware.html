@@ -1,0 +1,13 @@
+{% extends 'inventory/base.html' %}
+
+{% block title %}Добавить оборудование{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Добавить оборудование</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Сохранить</button>
+    <a href="{% url 'hardware_list' %}" class="btn btn-secondary">Назад к списку</a>
+</form>
+{% endblock %}

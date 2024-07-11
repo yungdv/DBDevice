@@ -1,0 +1,28 @@
+{% extends 'inventory/base.html' %}
+
+{% block title %}Список оборудования{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Список оборудования</h1>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Серийный номер</th>
+            <th scope="col">Инвентарный номер</th>
+            <th scope="col">Дата создания</th>
+            <th scope="col">Модель</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for hardware in hardwares %}
+            <tr>
+                <td>{{ hardware.sn }}</td>
+                <td>{{ hardware.inventn }}</td>
+                <td>{{ hardware.created }}</td>
+                <td>{{ hardware.model.name }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'add_hardware' %}" class="btn btn-primary mt-3">Добавить новое оборудование</a>
+{% endblock %}
